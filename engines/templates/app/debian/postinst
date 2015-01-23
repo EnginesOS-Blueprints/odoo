@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+ODOO_CONFIGURATION_FILE=/home/app/openerp-server.conf
+ODOO_GROUP="odoo"
+ODOO_DATA_DIR=/home/app/fs/odoo
+ODOO_LOG_DIR=/home/app/log/odoo
+ODOO_USER=python
+
+case "${1}" in
+    configure)
+   
+        # update-python-modules NOW otherwise invoke-rc.d openerp start will fail
+        update-python-modules
+        ;;
+    *)
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0
